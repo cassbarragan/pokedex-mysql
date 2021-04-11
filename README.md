@@ -10,33 +10,33 @@ Implement the functionality detailed in the following steps:
 
 ###  Step 1
 
-- Build out an express server to serve the front end.
+<!-- - Build out an express server to serve the front end.
 
 - Create a script for starting the server and for `webpack`.
 
 - Refactor your client to dynamically render from your React files.
 
-> You will know if you have done this correctly if you see Bulbasaur, Ivysaur, and Venasaur on the page.
+> You will know if you have done this correctly if you see Bulbasaur, Ivysaur, and Venasaur on the page. -->
 
 ----
 
 ###  Step 2
 
-- Using `mysql`, build out the back-end. Use `schema.sql` to create and seed the "pokedex" database.
+<!-- - Using `mysql`, build out the back-end. Use `schema.sql` to create and seed the "pokedex" database. -->
 
-- Establish a database connection in `db/index.js`
+<!-- - Establish a database connection in `db/index.js` -->
 
 ----
 
 ###  Step 3
 
-- Create a `GET` route to display all the Pokemon in your database onto the page. You should render each Pokemon's name, type, and image.
+<!-- - Create a `GET` route to display all the Pokemon in your database onto the page. You should render each Pokemon's name, type, and image. -->
 
-- Refactor the hardcoded `select` dropdown menu to display all of the types stored in the database.
+<!-- - Refactor the hardcoded `select` dropdown menu to display all of the types stored in the database. -->
+<!--
+- Filter the displayed Pokemon to match the type selected in the dropdown menu. -->
 
-- Filter the displayed Pokemon to match the type selected in the dropdown menu.
-
-- Re-display all the Pokemon on the page when 'Show All' is clicked.
+<!-- - Re-display all the Pokemon on the page when 'Show All' is clicked. -->
 
 ----
 
