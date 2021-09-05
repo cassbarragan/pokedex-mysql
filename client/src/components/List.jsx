@@ -1,7 +1,9 @@
 import React from 'react';
 
 
-var List = (props) => (
+var List = (props) => {
+console.log(props)
+return (
   <div>
     <div>
           <h3>Bulbasaur</h3>
@@ -17,5 +19,5 @@ var List = (props) => (
         </div>
   </div>
 )
-
+}
 export default List;

@@ -11,10 +11,16 @@ app.use(express.json());
 
 app.use(express.static(path.join(__dirname, '../client/dist')));
 
-app.get('/', (req, res) => {
-  // console.log('req.body', req.body)
-  console.log('get request working');
-  res.sendStatus(200).send(req.body);
+app.get('/get', (req, res) => {
+   db.query('SELECT * FROM pokemon', (err,table) => {
+     if(err) {
+       console.log(err);
+       res.end();
+     } else {
+      //  console.log('table from get req:', table);
+       res.json(table);
+     }
+   })
 });
 
 app.listen(port, () => {

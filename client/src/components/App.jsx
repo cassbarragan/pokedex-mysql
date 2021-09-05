@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import List from './List.jsx';
+import axios from 'axios';
 
 
 class App extends React.Component {
@@ -8,8 +9,22 @@ class App extends React.Component {
     super(props);
 
     this.state = {
-
+      list: []
     }
+    this.getData = this.getData.bind(this);
+  }
+
+  componentDidMount() {
+    this.getData();
+  }
+
+
+  getData(){
+    axios.get('/get')
+    .then(({data}) => {
+      this.setState({list:data})
+    })
+    .catch(err => console.log('ERROR:', err));
   }
 
   render() {
@@ -23,7 +38,7 @@ class App extends React.Component {
           <option>Fire</option>
           <option>Water</option>
         </select>
-        <List />
+        <List list={this.state.list}/>
       </div>
     )
   }
