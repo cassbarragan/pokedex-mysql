@@ -12,13 +12,16 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, '../client/dist')));
 
 app.get('/get', (req, res) => {
-   db.query('SELECT * FROM pokemon', (err,table) => {
+  const q = `SELECT * FROM pokemon
+  INNER JOIN images ON images.id = pokemon.imageNum
+  INNER JOIN types ON types.id = pokemon.typeNum
+  ORDER BY pokemon.id;`
+   db.query(q, (err, table) => {
      if(err) {
        console.log(err);
        res.end();
      } else {
-      //  console.log('table from get req:', table);
-       res.json(table);
+       res.status(200).json(table);
      }
    })
 });
@@ -26,3 +29,10 @@ app.get('/get', (req, res) => {
 app.listen(port, () => {
   console.log('listening on port 3000')
 });
+
+
+
+// SELECT * FROM pokemon
+//  INNER JOIN images ON images.id = pokemon.imageNum
+//  INNER JOIN types ON types.id = pokemon.typeNum
+//  ORDER BY exam.date

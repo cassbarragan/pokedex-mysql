@@ -18,14 +18,24 @@ class App extends React.Component {
     this.getData();
   }
 
-
   getData(){
     axios.get('/get')
-    .then(({data}) => {
-      this.setState({list:data})
+    .then((response) => {
+      console.log('data from axios on front end:', response.data);
+      this.setState({list:response.data})
     })
     .catch(err => console.log('ERROR:', err));
   }
+
+  //another way to do this but with destructuring:
+  // getData(){
+  //   axios.get('/get')
+  //   .then(({data}) => {
+  //     this.setState({list:data})
+  //     console.log('data from axios on front end:', data);
+  //   })
+  //   .catch(err => console.log('ERROR:', err));
+  // }
 
   render() {
     return(
@@ -46,3 +56,5 @@ class App extends React.Component {
 
 
 export default App;
+
+
